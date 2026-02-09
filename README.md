@@ -1,5 +1,7 @@
 # OpenClaw Proxy (OpenAI-compatible LLM Router)
 
+Monorepo: this proxy is vendored into [howardleegeek/openclaw-mobile](https://github.com/howardleegeek/openclaw-mobile) under `proxy/` (single-repo setup).
+
 Purpose: a single **OpenAI-compatible** endpoint for OpenClaw Mobile (Nana) that routes by `device_token` tier:
 - Free → DeepSeek
 - Pro → Kimi (Moonshot)
