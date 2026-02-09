@@ -39,6 +39,7 @@ Optional:
 - `CLAUDE_MODEL` (default: `claude-3-5-sonnet-latest`)
 - `TOKEN_DB_PATH` (default: `./data/tokens.sqlite3`)
 - `ADMIN_KEY` (enables admin endpoints)
+- `MOCK_MODE=1` (dev-only: no upstream calls; returns deterministic mock replies)
 
 ## Run (dev)
 
@@ -65,3 +66,9 @@ curl -sS http://127.0.0.1:8080/v1/chat/completions \\
   -d '{\"model\":\"gpt-4o-mini\",\"messages\":[{\"role\":\"user\",\"content\":\"你好\"}]}' | jq .
 ```
 
+## Offline Smoke Test (No Upstream Keys)
+
+```bash
+MOCK_MODE=1 ADMIN_KEY=devadmin LISTEN_PORT=8080 ./run_dev.sh
+./smoke_test.sh http://127.0.0.1:8080
+```
